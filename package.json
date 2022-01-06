@@ -2,7 +2,7 @@
   "name": "movie_api",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/MaiaraLopes/Achievement-2#readme",
   "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
