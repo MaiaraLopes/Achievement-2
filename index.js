@@ -55,7 +55,7 @@ app.get("/movies", function (req, res) {
   res.json(topMovies);
 });
 
-app.use("/documentation", express.static("public"));
+app.use(express.static("public"));
 
 app.use(function (err, req, res, next) {
   console.error(err.stack);
