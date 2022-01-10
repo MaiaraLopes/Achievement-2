@@ -1,17 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie API</title>
-</head>
-<body>
-    <h1>Movie API</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies API</title>
+  </head>
+  <body>
+    <h1>Movies API</h1>
     <p>
-        The web application will provide users with access to information about different
-        movies, directors, and genres. Users will be able to sign up, update their
-        personal information, and create a list of their favorite movies.
+      The web application will provide users with access to information about
+      different movies, directors, and genres. Users will be able to sign up,
+      update their personal information, and create a list of their favorite
+      movies.
     </p>
-</body>
+    <h2>Content</h2>
+    <table>
+      <tr>
+        <th>Request</th>
+        <th>URL</th>
+        <th>HTTP Method</th>
+        <th>Response</th>
+      </tr>
+
+<!-- Movies infomation-->
+
+      <tr>
+        <td>Get a list of movies</td>
+        <td>/movies</td>
+        <td>GET</td>
+        <td>A JSON object holding a list with all movies in the catalog.</td>
+      </tr>
+
+      <tr>
+        <td>Get data about a specific movie</td>
+        <td>/movies/:title</td>
+        <td>GET</td>
+        <td>
+          A JSON object holding data about the movie specified, including an ID.</br>
+          [</br>
+          id: 1, </br>
+          title: 'Coco', </br>
+          studio: 'Disney', </br>
+          genre: 'animation', </br>
+          director: 'Lee Unkrich' </br>
+          ]
+        </td>
+      </tr>
+
+      <tr>
+          <td>Get data about a specific director</td>
+          <td>/directors/:FirstnameLastname</td>
+          <td>GET</td>
+          <td>A JSON object holding data about the director specified.</br>
+            [</br>
+            name: 'Lee Unkrich',</br>
+            nationality: 'United States of America',</br>
+            movies: 'Toy Story 3', 'Coco',</br>
+            ]
+            </td>
+      </tr>
+
+<!-- User information-->
+
+      <tr>
+          <td>Add new user</td>
+          <td>/users</td>
+          <td>POST</td>
+          <td>A JSON object holding data about the new user that was added, including an ID.</br>
+            [</br>
+            id: 1,</br>
+            name: 'Walter Disney',</br>
+            date of birth: '5 Dec 1901',</br>
+            country: 'United States of America',</br>
+            ]</br>
+            </td>
+      </tr>
+
+      <tr>
+          <td>Update existing user</td>
+          <td>/users/:Username</td>
+          <td>PUT</td>
+          <td>An alert indicating the user's profile has been updated.</td>
+      </tr>
+
+      <tr>
+          <td>Delete existing user</td>
+          <td>/users/:Username</td>
+          <td>DELETE</td>
+          <td>An alert indicating the user's profile has been deleted.</td>
+      </tr>
+
+<!-- Favorites list -->
+
+      <tr>
+          <td>Get a list of favorite movies</td>
+          <td>/movies/favorites</td>
+          <td>GET</td>
+          <td>A JSON object holding the list of the user's favorite movies.</td>
+      </tr>
+
+      <tr>
+          <td>Add a movide to user's favorites list</td>
+          <td>movies/favorites</td>
+          <td>POST</td>
+          <td>A JSON object holding data about the movie added to the favorite's list</br>
+            [</br>
+            id: 1, </br>
+            title: 'Coco', </br>
+            studio: 'Disney', </br>
+            genre: 'animation', </br>
+            director: 'Lee Unkrich' </br>
+            ]
+            </td>
+      </tr>
+
+      <tr>
+          <td>Delete a movie from the user's favorite's list</td>
+          <td>/movies/favorites/:favorite</td>
+          <td>DELETE</td>
+          <td>An alert indicating the movie has been removed from the favorite's list.</td>
+      </tr>
+    </table>
+  </body>
 </html>

@@ -62,6 +62,62 @@ app.use(function (err, req, res, next) {
   res.status(500).send("Something broke!");
 });
 
+//GET - Get information
+
+app.get("/movies", function (req, res) {
+  res.send("Successful GET request returning data on all movies on the list.");
+});
+
+app.get("/movies/:title", function (req, res) {
+  res.send("Successful GET request returning data on the specified movie.");
+});
+
+app.get("/directors/:FirstnameLastname", function (req, res) {
+  res.send("Successful GET request returning data on the specified director.");
+});
+
+//POST - Add new user
+
+app.post("/users", function (req, res) {
+  res.status(201).send("Successful POST request adding a new user.");
+});
+
+//PUT - Update user's profile
+
+app.put("/users/:Username", function (req, res) {
+  res.status(201).send("Successful PUT request updating a user profile.");
+});
+
+//DELETE - Delete existing user
+
+app.delete("/users/:Username", function (req, res) {
+  res.status(201).send("Successful DELETE request deleting an existing user.");
+});
+
+//GET - Get favorites list
+
+app.get("/movies/favorites", function (req, res) {
+  res.send(
+    "Successful GET request returning data of all movies on the favourites list."
+  );
+});
+
+//POST - Add a movie to the favorites list
+
+app.post("/movies/favorites", function (req, res) {
+  res
+    .status(201)
+    .send("Successful POST request adding a movie to the favorites list.");
+});
+
+//DELETE - Delete a movie from the favorites list
+
+app.delete("/movies/favorites/:favorite", function (req, res) {
+  res
+    .status(201)
+    .send("Successful DELETE request deleting movie from the favorites list.");
+});
+
 app.listen(8080, function () {
   console.log("My app is running.");
 });
