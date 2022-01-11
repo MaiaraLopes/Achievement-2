@@ -51,9 +51,9 @@ app.get("/", function (req, res) {
   res.send("Welcome to my movies list!");
 });
 
-app.get("/movies", function (req, res) {
+/*app.get("/movies", function (req, res) {
   res.json(topMovies);
-});
+});*/
 
 app.use(express.static("public"));
 
@@ -67,7 +67,7 @@ app.get("/movies/:title", function (req, res) {
   res.send("Successful GET request returning data on the specified movie.");
 });
 
-app.get("/directors/:FirstnameLastname", function (req, res) {
+app.get("/directors/:director", function (req, res) {
   res.send("Successful GET request returning data on the specified director.");
 });
 
@@ -79,19 +79,19 @@ app.post("/users", function (req, res) {
 
 //PUT - Update user's profile
 
-app.put("/users/:Username", function (req, res) {
+app.put("/users/:username", function (req, res) {
   res.status(201).send("Successful PUT request updating a user profile.");
 });
 
 //DELETE - Delete existing user
 
-app.delete("/users/:Username", function (req, res) {
+app.delete("/users/:username", function (req, res) {
   res.status(201).send("Successful DELETE request deleting an existing user.");
 });
 
 //GET - Get favorites list
 
-app.get("/movies/favorites", function (req, res) {
+app.get("/users/:username/movies", function (req, res) {
   res.send(
     "Successful GET request returning data of all movies on the favourites list."
   );
@@ -99,18 +99,18 @@ app.get("/movies/favorites", function (req, res) {
 
 //POST - Add a movie to the favorites list
 
-app.post("/movies/favorites", function (req, res) {
+app.post("/users/:username/movies/:title", function (req, res) {
   res
     .status(201)
-    .send("Successful POST request adding a movie to the favorites list.");
+    .send("Successful POST request adding a movie to the user's list.");
 });
 
 //DELETE - Delete a movie from the favorites list
 
-app.delete("/movies/favorites/:favorite", function (req, res) {
+app.delete("users/:username/movies/:title", function (req, res) {
   res
     .status(201)
-    .send("Successful DELETE request deleting movie from the favorites list.");
+    .send("Successful DELETE request deleting movie from the user's list.");
 });
 
 app.use(function (err, req, res, next) {
