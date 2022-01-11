@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css">
     <title>Movies API</title>
   </head>
   <body>
@@ -17,9 +18,10 @@
     <h2>Content</h2>
     <table>
       <tr>
-        <th>Request</th>
+        <th>Description</th>
         <th>URL</th>
         <th>HTTP Method</th>
+        <th>Request Body</th>
         <th>Response</th>
       </tr>
 
@@ -38,14 +40,27 @@
         <td>GET</td>
         <td>
           A JSON object holding data about the movie specified, including an ID.</br>
-          [</br>
+          <code>[</br>
           id: 1, </br>
           title: 'Coco', </br>
           studio: 'Disney', </br>
           genre: 'animation', </br>
           director: 'Lee Unkrich' </br>
-          ]
+          ]</code>
         </td>
+      </tr>
+
+      <tr>
+          <td>Get the genre of a specific movie</td>
+          <td>/genres/:title</td>
+          <td>GET</td>
+          <td>A JSON object holding data about the genre of the specific movie, including an id.</br>
+            <code>[</br>
+            id: 1,</br>
+            title: 'Coco',</br>
+            description: 'Animation is a method in which figures are manipulated to appear as moving images.'</br>
+            ]</code>
+            </td>
       </tr>
 
       <tr>
@@ -53,11 +68,11 @@
           <td>/directors/:director</td>
           <td>GET</td>
           <td>A JSON object holding data about the director specified.</br>
-            [</br>
+            <code>[</br>
             name: 'Lee Unkrich',</br>
             nationality: 'United States of America',</br>
             movies: 'Toy Story 3', 'Coco',</br>
-            ]
+            ]</code>
             </td>
       </tr>
 
@@ -68,12 +83,12 @@
           <td>/users</td>
           <td>POST</td>
           <td>A JSON object holding data about the new user that was added, including an ID.</br>
-            [</br>
+            <code>[</br>
             id: 1,</br>
             name: 'Walter Disney',</br>
             date of birth: '5 Dec 1901',</br>
             country: 'United States of America',</br>
-            ]</br>
+            ]</code>
             </td>
       </tr>
 
@@ -97,21 +112,32 @@
           <td>Get a list of user's movies</td>
           <td>/users/:username/movies</td>
           <td>GET</td>
-          <td>A JSON object holding the list of the user's favorite movies.</td>
+          <td>A JSON array holding the list of the user's favorite movies.</br>
+            <code>[</br>
+            {</br>
+            id: 1,</br>
+            title: 'Coco',</br>
+            studio: 'Disney',</br>
+            genre: 'animation',</br>
+            director: 'Lee Unkrich'</br>
+            },</br></br>
+            ...</br></br>
+            ]</code>
+         </td>
       </tr>
 
       <tr>
-          <td>Add a movide to user's list</td>
+          <td>Add a movie to user's list</td>
           <td>/users/:username/movies/:title</td>
           <td>POST</td>
           <td>A JSON object holding data about the movie added to the user's list</br>
-            [</br>
+            <code>[</br>
             id: 1, </br>
             title: 'Coco', </br>
             studio: 'Disney', </br>
             genre: 'animation', </br>
             director: 'Lee Unkrich' </br>
-            ]
+            ]</code>
             </td>
       </tr>
 
