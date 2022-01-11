@@ -57,11 +57,6 @@ app.get("/movies", function (req, res) {
 
 app.use(express.static("public"));
 
-app.use(function (err, req, res, next) {
-  console.error(err.stack);
-  res.status(500).send("Something broke!");
-});
-
 //GET - Get information
 
 app.get("/movies", function (req, res) {
@@ -116,6 +111,11 @@ app.delete("/movies/favorites/:favorite", function (req, res) {
   res
     .status(201)
     .send("Successful DELETE request deleting movie from the favorites list.");
+});
+
+app.use(function (err, req, res, next) {
+  console.error(err.stack);
+  res.status(500).send("Something broke!");
 });
 
 app.listen(8080, function () {
