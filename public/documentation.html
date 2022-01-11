@@ -31,6 +31,7 @@
         <td>Get a list of movies</td>
         <td>/movies</td>
         <td>GET</td>
+        <td>None</td>
         <td>A JSON object holding a list with all movies in the catalog.</td>
       </tr>
 
@@ -38,15 +39,18 @@
         <td>Get data about a specific movie</td>
         <td>/movies/:title</td>
         <td>GET</td>
+        <td>None</td>
         <td>
-          A JSON object holding data about the movie specified, including an ID.</br>
-          <code>[</br>
-          id: 1, </br>
-          title: 'Coco', </br>
-          studio: 'Disney', </br>
-          genre: 'animation', </br>
-          director: 'Lee Unkrich' </br>
-          ]</code>
+          A JSON object holding data about the movie specified, including an ID.
+          <pre>
+<code>{
+id: 1,
+title: 'Coco', 
+studio: 'Disney', 
+genre: 'animation',
+director: 'Lee Unkrich' 
+}</code>
+          </pre>
         </td>
       </tr>
 
@@ -54,26 +58,32 @@
           <td>Get the genre of a specific movie</td>
           <td>/genres/:title</td>
           <td>GET</td>
-          <td>A JSON object holding data about the genre of the specific movie, including an id.</br>
-            <code>[</br>
-            id: 1,</br>
-            title: 'Coco',</br>
-            description: 'Animation is a method in which figures are manipulated to appear as moving images.'</br>
-            ]</code>
-            </td>
+          <td>None</td>
+          <td>A JSON object holding data about the genre of the specific movie, including an id.
+            <pre>
+<code>{
+id: 1,
+title: 'Coco',
+description: 'Animation is a method in which figures are manipulated to appear as moving images.'
+}</code>
+            </pre>
+        </td>
       </tr>
 
       <tr>
           <td>Get data about a specific director</td>
           <td>/directors/:director</td>
           <td>GET</td>
-          <td>A JSON object holding data about the director specified.</br>
-            <code>[</br>
-            name: 'Lee Unkrich',</br>
-            nationality: 'United States of America',</br>
-            movies: 'Toy Story 3', 'Coco',</br>
-            ]</code>
-            </td>
+          <td>None</td>
+          <td>A JSON object holding data about the director specified.
+            <pre>
+<code>{
+name: 'Lee Unkrich',
+nationality: 'United States of America',
+movies: 'Toy Story 3', 'Coco',
+}</code>
+            </pre>
+        </td>
       </tr>
 
 <!-- User information-->
@@ -82,20 +92,38 @@
           <td>Add new user</td>
           <td>/users</td>
           <td>POST</td>
-          <td>A JSON object holding data about the new user that was added, including an ID.</br>
-            <code>[</br>
-            id: 1,</br>
-            name: 'Walter Disney',</br>
-            date of birth: '5 Dec 1901',</br>
-            country: 'United States of America',</br>
-            ]</code>
-            </td>
+          <td>A JSON object holding data about the new user to be added.
+            <pre>
+<code>{
+name: 'Walter Disney',
+date of birth: '5 Dec 1901',
+country: 'United States of America',
+}</code>
+            </pre>        
+        </td>
+          <td>A JSON object holding data about the new user that was added, including an ID.
+            <pre>
+<code>{
+id: 1,
+name: 'Walter Disney',
+date of birth: '5 Dec 1901',
+country: 'United States of America',
+}</code>
+            </pre>
+        </td>
       </tr>
 
       <tr>
           <td>Update existing user</td>
           <td>/users/:username</td>
           <td>PUT</td>
+          <td>A JSON object holding the data about the information to be updated on the user's profile. 
+              <pre>
+<code>{
+name: 'Walter Elias Disney',
+}</code>
+            </pre>
+          </td>
           <td>An alert indicating the user's profile has been updated.</td>
       </tr>
 
@@ -103,6 +131,7 @@
           <td>Delete existing user</td>
           <td>/users/:username</td>
           <td>DELETE</td>
+          <td>None</td>
           <td>An alert indicating the user's profile has been deleted.</td>
       </tr>
 
@@ -112,17 +141,20 @@
           <td>Get a list of user's movies</td>
           <td>/users/:username/movies</td>
           <td>GET</td>
+          <td>None</td>
           <td>A JSON array holding the list of the user's favorite movies.</br>
-            <code>[</br>
-            {</br>
-            id: 1,</br>
-            title: 'Coco',</br>
-            studio: 'Disney',</br>
-            genre: 'animation',</br>
-            director: 'Lee Unkrich'</br>
-            },</br></br>
-            ...</br></br>
-            ]</code>
+            <pre>
+<code>[
+{
+id: 1,
+title: 'Coco
+studio: 'Disney',
+genre: 'animation',
+director: 'Lee Unkrich'
+},</br>
+...</br>
+]</code>
+            </pre>
          </td>
       </tr>
 
@@ -130,21 +162,34 @@
           <td>Add a movie to user's list</td>
           <td>/users/:username/movies/:title</td>
           <td>POST</td>
-          <td>A JSON object holding data about the movie added to the user's list</br>
-            <code>[</br>
-            id: 1, </br>
-            title: 'Coco', </br>
-            studio: 'Disney', </br>
-            genre: 'animation', </br>
-            director: 'Lee Unkrich' </br>
-            ]</code>
-            </td>
+          <td>A JSON object holding data about the movie to be added to the user's list.
+              <pre>
+<code>{
+title: 'Coco', 
+studio: 'Disney',
+genre: 'animation',
+director: 'Lee Unkrich' 
+}</code>
+            </pre>
+          </td>
+          <td>A JSON object holding data about the movie added to the user's list.
+            <pre>
+<code>{
+id: 1, 
+title: 'Coco', 
+studio: 'Disney',
+genre: 'animation',
+director: 'Lee Unkrich' 
+}</code>
+            </pre>
+          </td>
       </tr>
 
       <tr>
           <td>Delete a movie from the user's list</td>
           <td>users/:username/movies/:title</td>
           <td>DELETE</td>
+          <td>None</td>
           <td>An alert indicating the movie has been removed from the user's list.</td>
       </tr>
     </table>
