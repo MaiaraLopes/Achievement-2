@@ -93,7 +93,7 @@ app.delete("/users/:username", function (req, res) {
 
 app.get("/users/:username/movies", function (req, res) {
   res.send(
-    "Successful GET request returning data of all movies on the favourites list."
+    "Successful GET request returning data of all movies on the user's list."
   );
 });
 

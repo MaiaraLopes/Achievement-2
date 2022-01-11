@@ -50,7 +50,7 @@
 
       <tr>
           <td>Get data about a specific director</td>
-          <td>/directors/:FirstnameLastname</td>
+          <td>/directors/:director</td>
           <td>GET</td>
           <td>A JSON object holding data about the director specified.</br>
             [</br>
@@ -79,14 +79,14 @@
 
       <tr>
           <td>Update existing user</td>
-          <td>/users/:Username</td>
+          <td>/users/:username</td>
           <td>PUT</td>
           <td>An alert indicating the user's profile has been updated.</td>
       </tr>
 
       <tr>
           <td>Delete existing user</td>
-          <td>/users/:Username</td>
+          <td>/users/:username</td>
           <td>DELETE</td>
           <td>An alert indicating the user's profile has been deleted.</td>
       </tr>
@@ -94,17 +94,17 @@
 <!-- Favorites list -->
 
       <tr>
-          <td>Get a list of favorite movies</td>
-          <td>/movies/favorites</td>
+          <td>Get a list of user's movies</td>
+          <td>/users/:username/movies</td>
           <td>GET</td>
           <td>A JSON object holding the list of the user's favorite movies.</td>
       </tr>
 
       <tr>
-          <td>Add a movide to user's favorites list</td>
-          <td>movies/favorites</td>
+          <td>Add a movide to user's list</td>
+          <td>/users/:username/movies/:title</td>
           <td>POST</td>
-          <td>A JSON object holding data about the movie added to the favorite's list</br>
+          <td>A JSON object holding data about the movie added to the user's list</br>
             [</br>
             id: 1, </br>
             title: 'Coco', </br>
@@ -116,10 +116,10 @@
       </tr>
 
       <tr>
-          <td>Delete a movie from the user's favorite's list</td>
-          <td>/movies/favorites/:favorite</td>
+          <td>Delete a movie from the user's list</td>
+          <td>users/:username/movies/:title</td>
           <td>DELETE</td>
-          <td>An alert indicating the movie has been removed from the favorite's list.</td>
+          <td>An alert indicating the movie has been removed from the user's list.</td>
       </tr>
     </table>
   </body>
