@@ -107,7 +107,7 @@ app.post("/users/:username/movies/:title", function (req, res) {
 
 //DELETE - Delete a movie from the favorites list
 
-app.delete("users/:username/movies/:title", function (req, res) {
+app.delete("/users/:username/movies/:title", function (req, res) {
   res
     .status(201)
     .send("Successful DELETE request deleting movie from the user's list.");
