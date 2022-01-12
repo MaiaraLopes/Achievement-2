@@ -67,7 +67,7 @@ app.get("/movies/:title", function (req, res) {
   res.send("Successful GET request returning data on the specified movie.");
 });
 
-app.get("genres/:name", function (req, res) {
+app.get("genres/:title", function (req, res) {
   res.send("Successful GET request returning data on the movie genre.");
 });
 
