@@ -1,6 +1,11 @@
 const express = require("express"),
   morgan = require("morgan");
 const app = express();
+const mongoose = require("mongoose");
+const Models = require("./models.js");
+
+const Movies = Models.Movie;
+const Users = Models.User;
 
 let topMovies = [
   {
