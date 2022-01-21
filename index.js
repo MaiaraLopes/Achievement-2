@@ -1,6 +1,9 @@
 const express = require("express"),
   morgan = require("morgan");
+const bodyParser = require("body-parser");
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 const mongoose = require("mongoose");
 const Models = require("./models.js");
 
@@ -85,10 +88,54 @@ app.get("/directors/:director", function (req, res) {
   res.send("Successful GET request returning data on the specified director.");
 });
 
-//POST - Add new user
-
+/*
+POST - Add new user
+We'll expect a JSON in this format:
+{
+  ID: Integer,
+  Username: String,
+  Password: String,
+  Email: String,
+  Birthday: Date
+}
+*/
 app.post("/users", function (req, res) {
-  res.status(201).send("Successful POST request adding a new user.");
+  Users.findOne({ Username: req.body.Username })
+    .then(function (user) {
+      if (user) {
+        return res.status(400).send(req.body.Username + "already exists");
+      } else {
+        Users.create({
+          Username: req.body.Username,
+          Password: req.body.Password,
+          Email: req.body.Email,
+          Birthday: req.body.Birthday,
+        })
+          .then(function (user) {
+            res.status(201).json(user);
+          })
+          .catch(function (error) {
+            console.error(error);
+            res.status(500).send("Error: " + error);
+          });
+      }
+    })
+    .catch(function (error) {
+      console.error(error);
+      res.status(500).send("Error: " + error);
+    });
+});
+
+//GET all users
+
+app.get("/users", function (req, res) {
+  Users.find()
+    .then(function (users) {
+      res.status(201).json(users);
+    })
+    .catch(function (err) {
+      res.status(500).send("Error: " + err);
+    });
 });
 
 //PUT - Update user's profile
