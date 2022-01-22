@@ -52,9 +52,9 @@ app.get("/movies/:Title", function (req, res) {
 //GET - Get data about a genre by name
 
 app.get("/movies/Genre/:Name", function (req, res) {
-  Movies.find({ "Genre.Name": req.params.Genre.Name })
+  Movies.findOne({ "Genre.Name": req.params.Name })
     .then(function (movie) {
-      res.json(movie);
+      res.json(movie.Genre);
     })
     .catch(function (err) {
       console.error(err);
@@ -65,9 +65,9 @@ app.get("/movies/Genre/:Name", function (req, res) {
 //GET - Get data about a director by name
 
 app.get("/movies/Director/:Name", function (req, res) {
-  Movies.find({ "Director.Name": req.params.Director.Name })
+  Movies.findOne({ "Director.Name": req.params.Name })
     .then(function (movie) {
-      res.json(movie);
+      res.json(movie.Director);
     })
     .catch(function (err) {
       console.error(err);
@@ -152,7 +152,7 @@ app.post("/users/:Username/movies/:MovieID", function (req, res) {
 //DELETE - Delete a movie from the favorites list
 
 app.delete("/users/:Username/movies/:MovieID", function (req, res) {
-  Users.findOneAndRemove(
+  Users.findOneAndUpdate(
     { Username: req.params.Username },
     {
       $pull: { FavoriteMovies: req.params.MovieID },
@@ -172,7 +172,7 @@ app.delete("/users/:Username/movies/:MovieID", function (req, res) {
 //DELETE - Delete a user by Username
 
 app.delete("/users/:Username", function (req, res) {
-  Users.findOneandRemove({ Username: req.params.Username })
+  Users.findOneAndRemove({ Username: req.params.Username })
     .then(function (user) {
       if (!user) {
         res.status(400).send(req.params.Username + " was not found");
