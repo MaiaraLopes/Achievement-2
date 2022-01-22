@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 const mongoose = require("mongoose");
 const Models = require("./models.js");
 
@@ -15,77 +16,63 @@ mongoose.connect("mongodb://localhost:27017/myFlixDB", {
   useUnifiedTopology: true,
 });
 
-let topMovies = [
-  {
-    title: "Coco",
-    studio: "Disney",
-  },
-  {
-    title: "Luca",
-    studio: "Disney",
-  },
-  {
-    title: "Soul",
-    studio: "Disney",
-  },
-  {
-    title: "Toy Story",
-    studio: "Disney",
-  },
-  {
-    title: "Monsters Inc",
-    studio: "Disney",
-  },
-  {
-    title: "The Incredibles",
-    studio: "Disney",
-  },
-  {
-    title: "WALL-E",
-    studio: "Disney",
-  },
-  {
-    title: "Cars",
-    studio: "Disney",
-  },
-  {
-    title: "Finding Nemo",
-    studio: "Disney",
-  },
-  {
-    title: "Ratatouille",
-    studio: "Disney",
-  },
-];
-
 app.use(morgan("common"));
 
 app.get("/", function (req, res) {
   res.send("Welcome to my movies list!");
 });
 
-/*app.get("/movies", function (req, res) {
-  res.json(topMovies);
-});*/
-
 app.use(express.static("public"));
 
-//GET - Get information
+//GET - Get a list of all movies
 
 app.get("/movies", function (req, res) {
-  res.send("Successful GET request returning data on all movies on the list.");
+  Movies.find()
+    .then(function (movie) {
+      res.status(201).json(movie);
+    })
+    .catch(function (err) {
+      res.status(500).send("Error: " + err);
+    });
 });
 
-app.get("/movies/:title", function (req, res) {
-  res.send("Successful GET request returning data on the specified movie.");
+//GET - Get all data of a single movie by title
+
+app.get("/movies/:Title", function (req, res) {
+  Movies.findOne({ Title: req.params.Title })
+    .then(function (movie) {
+      res.json(movie);
+    })
+    .catch(function (err) {
+      console.error(err);
+      res.status(500).send("Error: " + err);
+    });
 });
 
-app.get("genres/:title", function (req, res) {
-  res.send("Successful GET request returning data on the movie genre.");
+//GET - Get data about a genre by name
+
+app.get("/movies/Genre/:Name", function (req, res) {
+  Movies.findOne({ "Genre.Name": req.params.Genre.Name })
+    .then(function (movie) {
+      res.json(movie);
+    })
+    .catch(function (err) {
+      console.error(err);
+      res.status(500).send("Error: " + err);
+    });
 });
 
-app.get("/directors/:director", function (req, res) {
-  res.send("Successful GET request returning data on the specified director.");
+//GET - Get data about a director by name
+
+app.get("/movies/Director/:Name", function (req, res) {
+  Movies.findOne({ "Director.Name": req.params.Director.Name })
+    .then(function (movie) {
+      res.json(movie);
+    })
+    .catch(function (err) {
+      console.error(err);
+      res.status(500).send("Error: " + err);
+    });
 });
 
 /*
@@ -126,32 +113,8 @@ app.post("/users", function (req, res) {
     });
 });
 
-//GET - Get all users
-
-app.get("/users", function (req, res) {
-  Users.find()
-    .then(function (users) {
-      res.status(201).json(users);
-    })
-    .catch(function (err) {
-      res.status(500).send("Error: " + err);
-    });
-});
-
-//GET - Get a specific user by Username
-
-app.get("/users/:Username", function (req, res) {
-  Users.findOne({ Username: req.params.Username })
-    .then(function (user) {
-      res.json(user);
-    })
-    .catch(function (err) {
-      console.error(err);
-      res.status(500).send("Error: " + err);
-    });
-});
-
-/*PUT - Update a specific user's info by Username
+/*
+PUT - Update a specific user's info by Username
 We'll expect a JSON in this format
 {
   Username: String, (required)
@@ -184,26 +147,6 @@ app.put("/users/:Username", function (req, res) {
   );
 });
 
-//PUT - Update user's profile
-
-app.put("/users/:username", function (req, res) {
-  res.status(201).send("Successful PUT request updating a user profile.");
-});
-
-//DELETE - Delete existing user
-
-app.delete("/users/:username", function (req, res) {
-  res.status(201).send("Successful DELETE request deleting an existing user.");
-});
-
-//GET - Get favorites list
-
-app.get("/users/:username/movies", function (req, res) {
-  res.send(
-    "Successful GET request returning data of all movies on the user's list."
-  );
-});
-
 //POST - Add a movie to the favorites list
 
 app.post("/users/:Username/movies/:MovieID", function (req, res) {
@@ -224,18 +167,24 @@ app.post("/users/:Username/movies/:MovieID", function (req, res) {
   );
 });
 
-app.post("/users/:username/movies/:title", function (req, res) {
-  res
-    .status(201)
-    .send("Successful POST request adding a movie to the user's list.");
-});
-
 //DELETE - Delete a movie from the favorites list
 
-app.delete("/users/:username/movies/:title", function (req, res) {
-  res
-    .status(201)
-    .send("Successful DELETE request deleting movie from the user's list.");
+app.delete("/users/:Username/movies/:MovieID", function (req, res) {
+  Users.findOneAndRemove(
+    { Username: req.params.Username },
+    {
+      $pull: { FavoriteMovies: req.params.MovieID },
+    },
+    { new: true },
+    function (err, updatedUser) {
+      if (err) {
+        console.error(err);
+        res.status(500).send("Error: " + err);
+      } else {
+        res.json(updatedUser);
+      }
+    }
+  );
 });
 
 //DELETE - Delete a user by Username
@@ -248,6 +197,31 @@ app.delete("/users/:Username", function (req, res) {
       } else {
         res.status(200).send(req.params.Username + " was deleted.");
       }
+    })
+    .catch(function (err) {
+      console.error(err);
+      res.status(500).send("Error: " + err);
+    });
+});
+
+//GET - Get all users
+
+app.get("/users", function (req, res) {
+  Users.find()
+    .then(function (users) {
+      res.status(201).json(users);
+    })
+    .catch(function (err) {
+      res.status(500).send("Error: " + err);
+    });
+});
+
+//GET - Get a specific user by Username
+
+app.get("/users/:Username", function (req, res) {
+  Users.findOne({ Username: req.params.Username })
+    .then(function (user) {
+      res.json(user);
     })
     .catch(function (err) {
       console.error(err);
