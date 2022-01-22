@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <title>Movies API</title>
   </head>
   <body>
@@ -25,7 +25,7 @@
         <th>Response</th>
       </tr>
 
-<!-- Movies infomation-->
+      <!-- Movies infomation-->
 
       <tr>
         <td>Get a list of movies</td>
@@ -37,151 +37,190 @@
 
       <tr>
         <td>Get data about a specific movie</td>
-        <td>/movies/:title</td>
+        <td>/movies/:Title</td>
         <td>GET</td>
         <td>None</td>
         <td>
           A JSON object holding data about the movie specified, including an ID.
           <pre>
 <code>{
-id: 1,
-title: 'Coco', 
-studio: 'Disney', 
-genre: 'animation',
-director: 'Lee Unkrich' 
+ID: 1,  
+Title: "Coco",
+Description: "The story follows a 12-year-old boy named Miguel",
+Genre: {
+  Name: "Animation",
+  Description: "Is a method in which figures are manipulated to appear as moving images."
+},
+Director: {
+  Name: "Lee Unkrich",
+  Bio: "Is an American director",
+},
+Actors: ["Anthony Gonzalez", "Gael Garcia Bernal"],
+ImagePath: coco.png,
+Featured: True,
 }</code>
           </pre>
         </td>
       </tr>
 
       <tr>
-          <td>Get the genre of a specific movie</td>
-          <td>/genres/:title</td>
-          <td>GET</td>
-          <td>None</td>
-          <td>A JSON object holding data about the genre of the specific movie, including an id.
-            <pre>
+        <td>Get the data about a genre by name</td>
+        <td>/movies/Genre/:Name</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>
+          A JSON object holding data about the genre.
+          <pre>
 <code>{
-id: 1,
-title: 'Coco',
-description: 'Animation is a method in which figures are manipulated to appear as moving images.'
+Name: "Animation",
+Description: "Animation is a method in which figures are manipulated to appear as moving images."
 }</code>
             </pre>
         </td>
       </tr>
 
       <tr>
-          <td>Get data about a specific director</td>
-          <td>/directors/:director</td>
-          <td>GET</td>
-          <td>None</td>
-          <td>A JSON object holding data about the director specified.
-            <pre>
+        <td>Get data about a specific director</td>
+        <td>/movies/Director/:Name</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>
+          A JSON object holding data about the director specified.
+          <pre>
 <code>{
-name: 'Lee Unkrich',
-nationality: 'United States of America',
-movies: 'Toy Story 3', 'Coco',
+Name: "Lee Unkrich",
+Bio: "Is an American director",
 }</code>
             </pre>
         </td>
       </tr>
 
-<!-- User information-->
+      <!-- User information-->
 
       <tr>
-          <td>Add new user</td>
-          <td>/users</td>
-          <td>POST</td>
-          <td>A JSON object holding data about the new user to be added.
-            <pre>
+        <td>Add new user</td>
+        <td>/users</td>
+        <td>POST</td>
+        <td>
+          A JSON object holding data about the new user to be added.
+          <pre>
 <code>{
-name: 'Walter Disney',
-date of birth: '5 Dec 1901',
-country: 'United States of America',
-}</code>
-            </pre>        
-        </td>
-          <td>A JSON object holding data about the new user that was added, including an ID.
-            <pre>
-<code>{
-id: 1,
-name: 'Walter Disney',
-date of birth: '5 Dec 1901',
-country: 'United States of America',
+Username: "Ross Geller",
+Password: "TyrannosaurusRex57",
+Email: "geologyrocks@gmail.com",
+Birthday: "1967-10-18"
 }</code>
             </pre>
         </td>
-      </tr>
-
-      <tr>
-          <td>Update existing user</td>
-          <td>/users/:username</td>
-          <td>PUT</td>
-          <td>A JSON object holding the data about the information to be updated on the user's profile. 
-              <pre>
+        <td>
+          A JSON object holding data about the new user that was added,
+          including an ID.
+          <pre>
 <code>{
-name: 'Walter Elias Disney',
+ID: 1,
+Username: "Ross Geller",
+Password: "TyrannosaurusRex67",
+Email: "geologyrocks@gmail.com",
+Birthday: "1967-10-18"
 }</code>
             </pre>
-          </td>
-          <td>An alert indicating the user's profile has been updated.</td>
+        </td>
       </tr>
 
       <tr>
-          <td>Delete existing user</td>
-          <td>/users/:username</td>
-          <td>DELETE</td>
-          <td>None</td>
-          <td>An alert indicating the user's profile has been deleted.</td>
-      </tr>
-
-<!-- Favorites list -->
-
-      <tr>
-          <td>Get a list of user's movies</td>
-          <td>/users/:username/movies</td>
-          <td>GET</td>
-          <td>None</td>
-          <td>A JSON array holding the list of the user's favorite movies.</br>
-            <pre>
-<code>[
-{
-id: 1,
-title: 'Coco
-studio: 'Disney',
-genre: 'animation',
-director: 'Lee Unkrich'
-},</br>
-...</br>
-]</code>
-            </pre>
-         </td>
-      </tr>
-
-      <tr>
-          <td>Add a movie to user's list</td>
-          <td>/users/:username/movies/:title</td>
-          <td>POST</td>
-          <td>A JSON object holding data about the movie to be added to the user's list.
-              <pre>
+        <td>Update existing user</td>
+        <td>/users/:Username</td>
+        <td>PUT</td>
+        <td>
+          A JSON object holding the data about the information to be updated on
+          the user's profile.
+          <pre>
 <code>{
-title: 'Coco', 
-studio: 'Disney',
-genre: 'animation',
-director: 'Lee Unkrich' 
+Username: "Ross Eustace Geller",
+Password: "TyrannosaurusRex67",
+Email: "geologyrocks@gmail.com",
+Birthday: "1967-10-18"
 }</code>
             </pre>
-          </td>
-          <td>An alert indicating the movie has been added to the user's list.
-          </td>
+        </td>
+        <td>An alert indicating the user's profile has been updated.</td>
       </tr>
 
       <tr>
-          <td>Delete a movie from the user's list</td>
-          <td>users/:username/movies/:title</td>
-          <td>DELETE</td>
-          <td>None</td>
-          <td>An alert indicating the movie has been removed from the user's list.</td>
+        <td>Delete existing user</td>
+        <td>/users/:Username</td>
+        <td>DELETE</td>
+        <td>None</td>
+        <td>An alert indicating the user's profile has been deleted.</td>
+      </tr>
+
+      <!-- Favorites list -->
+
+      <tr>
+        <td>Add a movie to user's list</td>
+        <td>/users/:Username/movies/:MovieID</td>
+        <td>POST</td>
+        <td>
+          A JSON object holding data about the movie to be added to the user's
+          list.
+          <pre>
+<code>{
+ID: 1,  
+Title: "Coco",
+Description: "The story follows a 12-year-old boy named Miguel",
+Genre: {
+  Name: "Animation",
+  Description: "Is a method in which figures are manipulated to appear as moving images."
+},
+Director: {
+  Name: "Lee Unkrich",
+  Bio: "Is an American director",
+},
+Actors: ["Anthony Gonzalez", "Gael Garcia Bernal"],
+ImagePath: coco.png,
+Featured: True,
+}</code>
+            </pre>
+        </td>
+        <td>
+          An alert indicating the movie has been added to the user's list.
+        </td>
+      </tr>
+
+      <tr>
+        <td>Delete a movie from the user's list</td>
+        <td>users/:Username/movies/:MovieID</td>
+        <td>DELETE</td>
+        <td>None</td>
+        <td>
+          An alert indicating the movie has been removed from the user's list.
+        </td>
+      </tr>
+
+      <tr>
+        <td>Get a list of users</td>
+        <td>/users</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>A JSON object holding a list with all users.</td>
+      </tr>
+
+      <td>Get data about a specific user</td>
+        <td>/users/:Username</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>
+          A JSON object holding data about the user specified, including an ID.
+          <pre>
+<code>{
+ID: 1,
+Username: "Ross Geller",
+Password: "TyrannosaurusRex67",
+Email: "geologyrocks@gmail.com",
+Birthday: "1967-10-18"
+}</code>
+          </pre>
+        </td>
       </tr>
     </table>
   </body>

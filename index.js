@@ -52,7 +52,7 @@ app.get("/movies/:Title", function (req, res) {
 //GET - Get data about a genre by name
 
 app.get("/movies/Genre/:Name", function (req, res) {
-  Movies.findOne({ "Genre.Name": req.params.Genre.Name })
+  Movies.find({ "Genre.Name": req.params.Genre.Name })
     .then(function (movie) {
       res.json(movie);
     })
@@ -65,7 +65,7 @@ app.get("/movies/Genre/:Name", function (req, res) {
 //GET - Get data about a director by name
 
 app.get("/movies/Director/:Name", function (req, res) {
-  Movies.findOne({ "Director.Name": req.params.Director.Name })
+  Movies.find({ "Director.Name": req.params.Director.Name })
     .then(function (movie) {
       res.json(movie);
     })
@@ -75,17 +75,8 @@ app.get("/movies/Director/:Name", function (req, res) {
     });
 });
 
-/*
-POST - Add new user
-We'll expect a JSON in this format:
-{
-  ID: Integer,
-  Username: String,
-  Password: String,
-  Email: String,
-  Birthday: Date
-}
-*/
+//POST - Add new user
+
 app.post("/users", function (req, res) {
   Users.findOne({ Username: req.body.Username })
     .then(function (user) {
@@ -113,16 +104,7 @@ app.post("/users", function (req, res) {
     });
 });
 
-/*
-PUT - Update a specific user's info by Username
-We'll expect a JSON in this format
-{
-  Username: String, (required)
-  Password: String, (required)
-  Email: String, (required)
-  Birthday: Date
-}
-*/
+//PUT - Update a specific user's info by Username
 
 app.put("/users/:Username", function (req, res) {
   Users.findOneAndUpdate(
