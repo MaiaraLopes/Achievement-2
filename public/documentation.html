@@ -44,20 +44,21 @@
           A JSON object holding data about the movie specified, including an ID.
           <pre>
 <code>{
-ID: 1,  
-Title: "Coco",
-Description: "The story follows a 12-year-old boy named Miguel",
-Genre: {
-  Name: "Animation",
-  Description: "Is a method in which figures are manipulated to appear as moving images."
+"Genre": {
+    "Name": "Animation",
+    "Description": "Is a method in which figures are manipulated to appear as moving images. In traditional animation, images are drawn or painted by hand on transparent celluloid sheets to be photographed and exhibited on film."
 },
-Director: {
-  Name: "Lee Unkrich",
-  Bio: "Is an American director",
+"Director": {
+    "Name": "Lee Unkrich",
+    "Bio": "Is and American director, film editor, screenwriter, and animator.",
+    "Birth": "1967"
 },
-Actors: ["Anthony Gonzalez", "Gael Garcia Bernal"],
-ImagePath: coco.png,
-Featured: True,
+"Actors": [],
+"_id": "61e5bc970069cf02d60eac92",
+"Title": "Coco",
+"Description": "The story follows a 12-year-old boy named Miguel who is accidentally transported to the Land of the Dead, where he seeks the help of his deceased musician great-great-grandfather to return him to his family among the living and to reverse his family's ban on music.",
+"ImagePath": "https://upload.wikimedia.org/wikipedia/en/9/98/Coco_%282017_film%29_poster.jpg",
+"Featured": true
 }</code>
           </pre>
         </td>
@@ -69,11 +70,11 @@ Featured: True,
         <td>GET</td>
         <td>None</td>
         <td>
-          A JSON object holding data about the genre.
+          A JSON object holding data about the genre specified.
           <pre>
 <code>{
 Name: "Animation",
-Description: "Animation is a method in which figures are manipulated to appear as moving images."
+"Description": "Is a method in which figures are manipulated to appear as moving images. In traditional animation, images are drawn or painted by hand on transparent celluloid sheets to be photographed and exhibited on film."
 }</code>
             </pre>
         </td>
@@ -88,8 +89,9 @@ Description: "Animation is a method in which figures are manipulated to appear a
           A JSON object holding data about the director specified.
           <pre>
 <code>{
-Name: "Lee Unkrich",
-Bio: "Is an American director",
+"Name": "Lee Unkrich",
+"Bio": "Is and American director, film editor, screenwriter, and animator.",
+"Birth": "1967"
 }</code>
             </pre>
         </td>
@@ -117,11 +119,11 @@ Birthday: "1967-10-18"
           including an ID.
           <pre>
 <code>{
-ID: 1,
-Username: "Ross Geller",
-Password: "TyrannosaurusRex67",
-Email: "geologyrocks@gmail.com",
-Birthday: "1967-10-18"
+"_id": "61e5e0da0069cf02d60eac9c",
+"Username": "Ross Geller",
+"Password": "TyrannosaurusRex67",
+"Email": "geologyrocks@gmail.com",
+"Birthday": "1967-10-18T00:00:00.000Z"
 }</code>
             </pre>
         </td>
@@ -136,14 +138,24 @@ Birthday: "1967-10-18"
           the user's profile.
           <pre>
 <code>{
-Username: "Ross Eustace Geller",
-Password: "TyrannosaurusRex67",
-Email: "geologyrocks@gmail.com",
-Birthday: "1967-10-18"
+"Username": "Ross Eustace Geller",
+"Password": "TyrannosaurusRex67",
+"Email": "geologyrocks@gmail.com",
+"Birthday": "1967-10-18T00:00:00.000Z"
 }</code>
             </pre>
         </td>
-        <td>An alert indicating the user's profile has been updated.</td>
+        <td>A JSON object holding the data about the information that was updated on the user's profile
+          <pre>
+<code>{
+"ID": "61e5e0da0069cf02d60eac9c",
+"Username": "Ross Eustace Geller",
+"Password": "TyrannosaurusRex67",
+"Email": "geologyrocks@gmail.com",
+"Birthday": "1967-10-18T00:00:00.000Z"
+}</code>
+          </pre>
+        </td>
       </tr>
 
       <tr>
@@ -151,7 +163,8 @@ Birthday: "1967-10-18"
         <td>/users/:Username</td>
         <td>DELETE</td>
         <td>None</td>
-        <td>An alert indicating the user's profile has been deleted.</td>
+        <td>If successful: "'Username' was deleted."<br>
+        If unsuccessful: "'Username' was not found."</td>
       </tr>
 
       <!-- Favorites list -->
@@ -160,30 +173,21 @@ Birthday: "1967-10-18"
         <td>Add a movie to user's list</td>
         <td>/users/:Username/movies/:MovieID</td>
         <td>POST</td>
-        <td>
-          A JSON object holding data about the movie to be added to the user's
-          list.
+        <td>None</td>
+        <td> A JSON object holding the data about the user's updated information with the added movie in it.
           <pre>
 <code>{
-ID: 1,  
-Title: "Coco",
-Description: "The story follows a 12-year-old boy named Miguel",
-Genre: {
-  Name: "Animation",
-  Description: "Is a method in which figures are manipulated to appear as moving images."
-},
-Director: {
-  Name: "Lee Unkrich",
-  Bio: "Is an American director",
-},
-Actors: ["Anthony Gonzalez", "Gael Garcia Bernal"],
-ImagePath: coco.png,
-Featured: True,
+"_id": "61ec4767210d3f7bc08ea06e",
+"Username": "Ross Eustace Geller",
+"Password": "TyrannosaurusRex67",
+"Email": "geologyrocks@gmail.com",
+"Birthday": "1967-10-18T00:00:00.000Z",
+"FavoriteMovies": [
+"61e5bc970069cf02d60eac92"
+],
+"__v": 0
 }</code>
-            </pre>
-        </td>
-        <td>
-          An alert indicating the movie has been added to the user's list.
+           </pre>
         </td>
       </tr>
 
@@ -192,8 +196,19 @@ Featured: True,
         <td>users/:Username/movies/:MovieID</td>
         <td>DELETE</td>
         <td>None</td>
-        <td>
-          An alert indicating the movie has been removed from the user's list.
+        <td> A JSON object holding the data about the user's updated information without the removed movie in it.
+          <pre>
+<code>{
+"_id": "61ec4767210d3f7bc08ea06e",
+"Username": "Ross Eustace Geller",
+"Password": "TyrannosaurusRex67",
+"Email": "geologyrocks@gmail.com",
+"Birthday": "1967-10-18T00:00:00.000Z",
+"FavoriteMovies": [],
+"__v": 0
+}</code>
+            </pre> 
+          </td>
         </td>
       </tr>
 
@@ -213,11 +228,15 @@ Featured: True,
           A JSON object holding data about the user specified, including an ID.
           <pre>
 <code>{
-ID: 1,
-Username: "Ross Geller",
-Password: "TyrannosaurusRex67",
-Email: "geologyrocks@gmail.com",
-Birthday: "1967-10-18"
+"_id": "61ec4767210d3f7bc08ea06e",
+"Username": "Ross Eustace Geller",
+"Password": "TyrannosaurusRex67",
+"Email": "geologyrocks@gmail.com",
+"Birthday": "1967-10-18T00:00:00.000Z",
+"FavoriteMovies": [
+    "61e5bc970069cf02d60eac92"
+],
+"__v": 0
 }</code>
           </pre>
         </td>
