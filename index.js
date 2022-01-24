@@ -5,6 +5,11 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+let auth = require("./auth")(app);
+
+const passport = require("passport");
+require("./passport");
+
 const mongoose = require("mongoose");
 const Models = require("./models.js");
 
@@ -26,15 +31,19 @@ app.use(express.static("public"));
 
 //GET - Get a list of all movies
 
-app.get("/movies", function (req, res) {
-  Movies.find()
-    .then(function (movie) {
-      res.status(201).json(movie);
-    })
-    .catch(function (err) {
-      res.status(500).send("Error: " + err);
-    });
-});
+app.get(
+  "/movies",
+  passport.authenticate("jwt", { session: false }),
+  function (req, res) {
+    Movies.find()
+      .then(function (movie) {
+        res.status(201).json(movie);
+      })
+      .catch(function (err) {
+        res.status(500).send("Error: " + err);
+      });
+  }
+);
 
 //GET - Get all data of a single movie by title
 
