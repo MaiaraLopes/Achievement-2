@@ -98,36 +98,32 @@ app.get(
 
 //POST - Add new user
 
-app.post(
-  "/users",
-  passport.authenticate("jwt", { session: false }),
-  function (req, res) {
-    Users.findOne({ Username: req.body.Username })
-      .then(function (user) {
-        if (user) {
-          return res.status(400).send(req.body.Username + "already exists");
-        } else {
-          Users.create({
-            Username: req.body.Username,
-            Password: req.body.Password,
-            Email: req.body.Email,
-            Birthday: req.body.Birthday,
+app.post("/users", function (req, res) {
+  Users.findOne({ Username: req.body.Username })
+    .then(function (user) {
+      if (user) {
+        return res.status(400).send(req.body.Username + "already exists");
+      } else {
+        Users.create({
+          Username: req.body.Username,
+          Password: req.body.Password,
+          Email: req.body.Email,
+          Birthday: req.body.Birthday,
+        })
+          .then(function (user) {
+            res.status(201).json(user);
           })
-            .then(function (user) {
-              res.status(201).json(user);
-            })
-            .catch(function (error) {
-              console.error(error);
-              res.status(500).send("Error: " + error);
-            });
-        }
-      })
-      .catch(function (error) {
-        console.error(error);
-        res.status(500).send("Error: " + error);
-      });
-  }
-);
+          .catch(function (error) {
+            console.error(error);
+            res.status(500).send("Error: " + error);
+          });
+      }
+    })
+    .catch(function (error) {
+      console.error(error);
+      res.status(500).send("Error: " + error);
+    });
+});
 
 //PUT - Update a specific user's info by Username
 

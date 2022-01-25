@@ -23,6 +23,36 @@
         <th>HTTP Method</th>
         <th>Request Body</th>
         <th>Response</th>
+        <th>Authetication Strategy</th>
+      </tr>
+
+      <!-- Login -->
+
+      <tr>
+        <td>Login the user</td>
+        <td>/login</td>
+        <td>POST</td>
+        <td>A JSON object holding the user's Username and Password.
+          <let>
+<code>{
+"Username": "newuser",
+"Password": "newpassword"
+}</code>
+          </let>
+        </td>
+        <td>A JSON object with the user's full data.
+          <let>
+<code>
+{
+"Username": "newuser",
+"Password": "newpassword"
+"Email": "newuser@gmail.com",
+"Birthday": "1990-09-09"
+}
+</code>
+          </let>
+        </td>
+        <td>Basic HTTP Authorization with Username and Password.</td>
       </tr>
 
       <!-- Movies infomation-->
@@ -33,6 +63,7 @@
         <td>GET</td>
         <td>None</td>
         <td>A JSON object holding a list with all movies in the catalog.</td>
+        <td>JWT authentication (Bearer).</td>
       </tr>
 
       <tr>
@@ -62,6 +93,7 @@
 }</code>
           </pre>
         </td>
+        <td>JWT authentication (Bearer).</td>
       </tr>
 
       <tr>
@@ -78,6 +110,7 @@ Name: "Animation",
 }</code>
             </pre>
         </td>
+        <td>JWT authentication (Bearer).</td>
       </tr>
 
       <tr>
@@ -95,6 +128,7 @@ Name: "Animation",
 }</code>
             </pre>
         </td>
+        <td>JWT authentication (Bearer).</td>
       </tr>
 
       <!-- User information-->
@@ -129,6 +163,7 @@ Birthday: "1967-10-18"
 }</code>
             </pre>
         </td>
+        <td>None</td>
       </tr>
 
       <tr>
@@ -160,6 +195,7 @@ Birthday: "1967-10-18"
 }</code>
           </pre>
         </td>
+        <td>JWT authentication (Bearer).</td>
       </tr>
 
       <tr>
@@ -193,6 +229,7 @@ Birthday: "1967-10-18"
 }</code>
            </pre>
         </td>
+        <td>JWT authentication (Bearer).</td>
       </tr>
 
       <tr>
@@ -214,6 +251,7 @@ Birthday: "1967-10-18"
             </pre> 
           </td>
         </td>
+        <td>JWT authentication (Bearer).</td>
       </tr>
 
       <tr>
@@ -222,6 +260,7 @@ Birthday: "1967-10-18"
         <td>GET</td>
         <td>None</td>
         <td>A JSON object holding a list with all users.</td>
+        <td>JWT authentication (Bearer).</td>
       </tr>
 
       <td>Get data about a specific user</td>
@@ -244,6 +283,7 @@ Birthday: "1967-10-18"
 }</code>
           </pre>
         </td>
+        <td>JWT authentication (Bearer).</td>
       </tr>
     </table>
   </body>
