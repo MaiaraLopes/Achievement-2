@@ -9,7 +9,11 @@
   font-size: 20px;
 }
 .movie-title,
-.movie-description {
+.movie-description,
+.genre-name,
+.genre-description,
+.director-name,
+.director-bio {
   border: solid #b8f2e6;
   border-radius: 10px;
   padding: 10px;
