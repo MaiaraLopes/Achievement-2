@@ -159,6 +159,7 @@ app.put(
   "/users/:Username",
   passport.authenticate("jwt", { session: false }),
   function (req, res) {
+    let hashedPassword = Users.hashPassword(req.body.Password);
     Users.findOneAndUpdate(
       { Username: req.params.Username },
       {
