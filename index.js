@@ -33,13 +33,29 @@ mongoose.connect(process.env.CONNECTION_URI, {
 
 app.use(morgan("common"));
 
+/**
+ * Welcome page
+ * @method GET
+ * @param {string} - URL
+ * @param {requestCallback}
+ * @callback requestCallback
+ * @returns {string} - Welcome message
+ */
 app.get("/", function (req, res) {
   res.send("Welcome to my movies list!");
 });
 
 app.use(express.static("public"));
 
-//GET - Get a list of all movies
+/**
+ * Get a list of all movies
+ * @method GET
+ * @param {string} - URL/movies
+ * @param {authentication}
+ * @param {requestCallback}
+ * @callback requestCallback
+ * @returns {object} - An array with a list with all the movies in the database
+ */
 
 app.get(
   "/movies",
@@ -55,8 +71,15 @@ app.get(
   }
 );
 
-//GET - Get all data of a single movie by title
-
+/**
+ * Get all the information of the specified movie
+ * @method GET
+ * @param {string} - URL/movies/:Title
+ * @param {authentication}
+ * @param {requestCallback}
+ * @callback requestCallback
+ * @returns {object} - An object with all the information for the movie specified
+ */
 app.get(
   "/movies/:Title",
   passport.authenticate("jwt", { session: false }),
@@ -72,7 +95,15 @@ app.get(
   }
 );
 
-//GET - Get data about a genre by name
+/**
+ * Get the information about a specific genre
+ * @method GET
+ * @param {string} - URL/movies/Genre/:Name
+ * @param {authentication}
+ * @param {requestCallback}
+ * @callback requestCallback
+ * @returns {object} - An object with the information about the specified genre
+ */
 
 app.get(
   "/movies/Genre/:Name",
@@ -89,7 +120,15 @@ app.get(
   }
 );
 
-//GET - Get data about a director by name
+/**
+ * Get the information about a specific director
+ * @method GET
+ * @param {string} - URL/movies/Director/:Name
+ * @param {authentication}
+ * @param {requestCallback}
+ * @callback requestCallback
+ * @returns {object} - An object with the information about the specified director
+ */
 
 app.get(
   "/movies/Director/:Name",
@@ -106,7 +145,15 @@ app.get(
   }
 );
 
-//POST - Add new user
+/**
+ * Add a new user
+ * @method POST
+ * @param {string} - URL/users
+ * @param {array} - Checks requirements to register a user
+ * @param {requestCallback}
+ * @callback requestCallback
+ * @returns {object} - An object with the information of the new user
+ */
 
 app.post(
   "/users",
@@ -153,7 +200,15 @@ app.post(
   }
 );
 
-//PUT - Update a specific user's info by Username
+/**
+ * Update the logged in user's information
+ * @method PUT
+ * @param {string} - URL/users/:Username
+ * @param {authentication}
+ * @param {requestCallback}
+ * @callback requestCallback
+ * @returns {object} - An object with the user's updated information
+ */
 
 app.put(
   "/users/:Username",
@@ -183,7 +238,15 @@ app.put(
   }
 );
 
-//POST - Add a movie to the favorites list
+/**
+ * Add a movie to the favorites list
+ * @method POST
+ * @param {string} - ULR/users/:Username/movies/:MovieID
+ * @param {authentication}
+ * @param {requestCallback}
+ * @callback requestCallback
+ * @returns {object} - An object with the user's information adding the new favorited movie
+ */
 
 app.post(
   "/users/:Username/movies/:MovieID",
@@ -207,7 +270,15 @@ app.post(
   }
 );
 
-//DELETE - Delete a movie from the favorites list
+/**
+ * Delete a movie from the favorites list
+ * @method DELETE
+ * @param {string} - URL/users/:Username/movies/:MovieID
+ * @param {authentication}
+ * @param {requestCallback}
+ * @callback requestCallback
+ * @returns {object} - An object with the user's information without the movie just deleted
+ */
 
 app.delete(
   "/users/:Username/movies/:MovieID",
@@ -231,7 +302,15 @@ app.delete(
   }
 );
 
-//DELETE - Delete a user by Username
+/**
+ * Delete a user
+ * @method DELETE
+ * @param {string} - URL/users/:Username
+ * @param {authentication}
+ * @param {requestCallback}
+ * @callback requestCallback
+ * @returns {string} - An alert pops us informing that the user has been deleted
+ */
 
 app.delete(
   "/users/:Username",
@@ -252,7 +331,15 @@ app.delete(
   }
 );
 
-//GET - Get all users
+/**
+ * Get a list of all users
+ * @method GET
+ * @param {string} - URL/users
+ * @param {atuhentication}
+ * @param {requestCallback}
+ * @callback requestCallback
+ * @returns {array} - A list with all registered users
+ */
 
 app.get(
   "/users",
@@ -268,7 +355,15 @@ app.get(
   }
 );
 
-//GET - Get a specific user by Username
+/**
+ * Get a specific user by Username
+ * @method GET
+ * @param {string} - URL/users/:Username
+ * @param {authentication}
+ * @param {requestCallback}
+ * @callback requestCallback
+ * @returns {object} - An object with the user's information
+ */
 
 app.get(
   "/users/:Username",
@@ -285,11 +380,13 @@ app.get(
   }
 );
 
+//Function to catch errors
 app.use(function (err, req, res, next) {
   console.error(err.stack);
   res.status(500).send("Something broke!");
 });
 
+//Create and listen to the port on the hosted server
 const port = process.env.PORT || 8080;
 app.listen(port, "0.0.0.0", function () {
   console.log("Listening on Port " + port);

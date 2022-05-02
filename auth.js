@@ -13,7 +13,11 @@ let generateJWTToken = function (user) {
   });
 };
 
-//Post login
+/**
+ * Post login
+ * @param {*} router
+ * @returns {object} user, token
+ */
 
 module.exports = function (router) {
   router.post("/login", function (req, res) {
