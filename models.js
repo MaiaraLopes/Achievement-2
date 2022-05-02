@@ -25,10 +25,24 @@ let userSchema = mongoose.Schema({
   FavoriteMovies: [{ type: mongoose.Schema.Types.ObjectId, ref: "Movie" }],
 });
 
+/**
+ * Static method to encrypt the user's password when creating or updating the user
+ * @method hashPassword
+ * @param {*} password
+ * @returns {string} - String containing the encrypted password
+ */
 userSchema.statics.hashPassword = function (password) {
   return bcrypt.hashSync(password, 10);
 };
 
+/**
+ * Method used to validate the user's password agains the encrypted version
+ * in the database when they try to log in.
+ * @method validatePassword
+ * @param {*} password
+ * @returns {boolean} - True or false depending if the submitted password matches
+ * the enctrypted version from the database
+ */
 userSchema.methods.validatePassword = function (password) {
   return bcrypt.compareSync(password, this.Password);
 };
