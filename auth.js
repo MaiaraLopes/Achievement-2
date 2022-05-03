@@ -14,7 +14,7 @@ let generateJWTToken = function (user) {
 };
 
 /**
- * Post login
+ * Enables user to login to app
  * @param {*} router
  * @returns {object} user, token
  */
