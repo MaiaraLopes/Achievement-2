@@ -319,14 +319,18 @@ app.delete(
     Users.findOneAndRemove({ Username: req.params.Username })
       .then(function (user) {
         if (!user) {
-          res.status(400).send(req.params.Username + " was not found.");
+          res.status(400).json({
+            message: req.params.Username + " was not found.",
+          });
         } else {
-          res.status(200).send(req.params.Username + " was deleted.");
+          res
+            .status(200)
+            .json({ message: req.params.Username + " was deleted." });
         }
       })
       .catch(function (err) {
         console.error(err);
-        res.status(500).send("Error: " + err);
+        res.status(500).json({ error: "Error: " + err });
       });
   }
 );
