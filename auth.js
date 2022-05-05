@@ -15,8 +15,34 @@ let generateJWTToken = function (user) {
 
 /**
  * Enables user to login to app
- * @param {*} router
- * @returns {object} user, token
+ * @description - Enables user to login to app
+ * @param {URL} - /login
+ * @param {HTTP} - POST
+ * @param {Query_Paramenters} - none
+ * @param {Request_Body} - JSON object
+ * @example
+ * // Request data format
+ * {
+ *  "Username": "User1",
+ *  "Password": "Password1"
+ * }
+ * @param {Response} - JSON object
+ * @example
+ * // Response data format
+ * {
+ *  user: {
+ *    "_id": "asdasd123123123asd",
+ *    "Username": "User1",
+ *    "Password": "Password1",
+ *  	"Email": "user1@email.com",
+ *    "Birthdate": "1990-01-01" ,
+ *    "FavoriteMovies": []
+ *  },
+ *  token: "zxcvbnmmnbvcxz1029384756zxcvbnm"
+ * }
+ * @param {authentication} - Basic HTTP authentication (Username, Password)
+ * @callback requestCallback
+ * @returns {obejct} - An object containing a JWT token and the logged in user object
  */
 
 module.exports = function (router) {

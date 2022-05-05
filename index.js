@@ -35,10 +35,12 @@ app.use(morgan("common"));
 
 /**
  * Welcome page
- * @method GET
- * @param {string} - URL
- * @param {requestCallback}
- * @callback requestCallback
+ * @description - Welcome page
+ * @param {URL} - /
+ * @param {HTTP} - GET
+ * @param {Query_Parameters} - none
+ * @param {Request_Body} - none
+ * @param {Response} - none
  * @returns {string} - Welcome message
  */
 app.get("/", function (req, res) {
@@ -49,10 +51,13 @@ app.use(express.static("public"));
 
 /**
  * Get a list of all movies
- * @method GET
- * @param {string} - URL/movies
- * @param {authentication}
- * @param {requestCallback}
+ * @description - Get a list of all movies
+ * @param {URL} - /movies
+ * @param {HTTP} - GET
+ * @param {Query_Parameters} - none
+ * @param {Request_Body} - none
+ * @param {Response} - JSON object
+ * @param {authentication} - Bearer token (JWT)
  * @callback requestCallback
  * @returns {object} - An array with a list with all the movies in the database
  */
@@ -73,10 +78,30 @@ app.get(
 
 /**
  * Get all the information of the specified movie
- * @method GET
- * @param {string} - URL/movies/:Title
- * @param {authentication}
- * @param {requestCallback}
+ * @description - Get all the information of the specified movie
+ * @param {URL} - /movies/:Title
+ * @param {HTTP} - GET
+ * @param {Query_Parameters} - :Title
+ * @param {Request_Body} - none
+ * @param {Response} - JSON object
+ * @example
+ * // Response data format
+ * {
+ * "Genre": {
+ * "Name": "Animation",
+ * "Description": "Is a method in which figures are manipulated to appear as moving images."
+ * },
+ * "Director": {
+ * "Name": "Lee Unkrich",
+ * "Bio": "Is and American director, film editor, screenwriter, and animator.",
+ * "Birth": "1967-01-01"
+ * },
+ * "_id": "61e5bc970069cf02d60eac92",
+ * "Title": "Coco",
+ * "Description": "The story follows Miguel who is accidentally transported to the Land of the Dead, [...]",
+ * "ImagePath": "https://upload.wikimedia.org/wikipedia/en/9/98/Coco_%282017_film%29_poster.jpg",
+ * }
+ * @param {authentication} - Bearer token (JWT)
  * @callback requestCallback
  * @returns {object} - An object with all the information for the movie specified
  */
@@ -97,10 +122,19 @@ app.get(
 
 /**
  * Get the information about a specific genre
- * @method GET
- * @param {string} - URL/movies/Genre/:Name
- * @param {authentication}
- * @param {requestCallback}
+ * @description - Get the information about a specific genre
+ * @param {URL} - /movies/Genre/:Name
+ * @param {HTTP} - GET
+ * @param {Query_Parameters} - :Name
+ * @param {Request_Body} - none
+ * @param {Response} - JSON object
+ * @example
+ * // Response data format
+ * {
+ * Name: "Animation",
+ * "Description": "Is a method in which figures are manipulated to appear as moving images."
+ * }
+ * @param {authentication} - Bearer token (JWT)
  * @callback requestCallback
  * @returns {object} - An object with the information about the specified genre
  */
@@ -122,10 +156,20 @@ app.get(
 
 /**
  * Get the information about a specific director
- * @method GET
- * @param {string} - URL/movies/Director/:Name
- * @param {authentication}
- * @param {requestCallback}
+ * @description - Get the information about a specific director
+ * @param {URL} - /movies/Director/:Name
+ * @param {HTTP} - GET
+ * @param {Query_Parameters} - :Name
+ * @param {Request_Body} - none
+ * @param {Response} - JSON object
+ * @example
+ * // Response data format
+ * {
+ * "Name": "Lee Unkrich",
+ * "Bio": "Is and American director, film editor, screenwriter, and animator.",
+ * "Birth": "1967-01-01"
+ * }
+ * @param {authentication} - Bearer token (JWT)
  * @callback requestCallback
  * @returns {object} - An object with the information about the specified director
  */
@@ -147,10 +191,34 @@ app.get(
 
 /**
  * Add a new user
- * @method POST
- * @param {string} - URL/users
- * @param {array} - Checks requirements to register a user
- * @param {requestCallback}
+ * @description - Add a new user
+ * @param {URL} - /users
+ * @param {HTTP} - POST
+ * @param {Query_Parameters} - none
+ * @param {Request_Body} - JSON object
+ * @example
+ * // Request data format
+ * {
+ *  "Username": "User1",
+ *  "Password": "Password1",
+ *  "Email": "user1@email.com",
+ *  "Birthdate": "1990-01-01"
+ * }
+ * @param {response} - JSON object
+ * @example
+ * // Response data format
+ * {
+ *  user: {
+ *    "_id": "asdasd123123123asd",
+ *    "Username": "User1",
+ *    "Password": "Password1",
+ *  	"Email": "user1@email.com",
+ *    "Birthdate": "1990-01-01" ,
+ *    "FavoriteMovies": []
+ *  },
+ *  token: "zxcvbnmmnbvcxz1029384756zxcvbnm"
+ * }
+ * @param {authentication} - Bearer token (JWT)
  * @callback requestCallback
  * @returns {object} - An object with the information of the new user
  */
@@ -202,10 +270,34 @@ app.post(
 
 /**
  * Update the logged in user's information
- * @method PUT
- * @param {string} - URL/users/:Username
- * @param {authentication}
- * @param {requestCallback}
+ * @description - Update the logged in user's information
+ * @param {URL} - /users/:Username
+ * @param {HTTP} - PUT
+ * @param {Query_Parameters} - :Username
+ * @param {Request_Body} - JSON object
+ * @example
+ * // Request data format
+ * {
+ *  "Username": "User1",
+ *  "Password": "Password1",
+ *  "Email": "user1@email.com",
+ *  "Birthdate:" "1990-01-01"
+ * }
+ * @param {Response} - JSON object
+ * @example
+ * // Response data format
+ * {
+ *  "_id": "asdasd123123123asd",
+ *  "Username": "User1",
+ *  "Password": "Password1",
+ *  "Email": "user1@email.com",
+ *  "Birthdate": "1990-01-01",
+ *  "FavoriteMovies": [
+ *    "qweqwe456456qwe",
+ *    "zxczxc789789zxc,
+ *  ]
+ * }
+ * @param {authentication} - Bearen token (JWT)
  * @callback requestCallback
  * @returns {object} - An object with the user's updated information
  */
@@ -240,10 +332,25 @@ app.put(
 
 /**
  * Add a movie to the favorites list
- * @method POST
- * @param {string} - ULR/users/:Username/movies/:MovieID
- * @param {authentication}
- * @param {requestCallback}
+ * @description - Add a movie to the favorites list
+ * @param {URL} - /users/:Username/movies/:MovieID
+ * @param {HTTP} - POST
+ * @param {Query_Parameters} - :Username/movies/:MovieID
+ * @param {Request_Body} - none
+ * @param {Response} - JSON object
+ * @example
+ * // Response data format
+ *{
+ *  "_id": "asdasd123123123asd",
+ *  "Username": "User1",
+ *  "Password": "Password1",
+ *  "Email": "user1@email.com",
+ *  "Birthdate": "1990-01-01",
+ *  "FavoriteMovies": [
+ *    "qweqwe456456qwe",
+ *   ]
+ * }
+ * @param {authentication} - Bearer token (JWT)
  * @callback requestCallback
  * @returns {object} - An object with the user's information adding the new favorited movie
  */
@@ -272,10 +379,23 @@ app.post(
 
 /**
  * Delete a movie from the favorites list
- * @method DELETE
- * @param {string} - URL/users/:Username/movies/:MovieID
- * @param {authentication}
- * @param {requestCallback}
+ * @description - Delete a movie from the favorites list
+ * @param {URL} - users/:Username/movies/:MovieID
+ * @param {HTTP} - DELETE
+ * @param {Query_Parameters} - :Username/movies/:MovieID
+ * @param {Request_Body} - none
+ * @param {Response} - JSON object
+ * @example
+ * // Response data format
+ * {
+ *  "_id": "asdasd123123123asd",
+ *  "Username": "User1",
+ *  "Password": "Password1",
+ *  "Email": "user1@email.com",
+ *  "Birthdate": "1990-01-01",
+ *  "FavoriteMovies": []
+ * }
+ * @param {authentication} - Bearer token (JWT)
  * @callback requestCallback
  * @returns {object} - An object with the user's information without the movie just deleted
  */
@@ -304,10 +424,13 @@ app.delete(
 
 /**
  * Delete a user
- * @method DELETE
- * @param {string} - URL/users/:Username
- * @param {authentication}
- * @param {requestCallback}
+ * @description - Delete a user
+ * @param {URL} - /users/:Username
+ * @param {HTTP} - DELETE
+ * @param {Query_Parameters} - :Username
+ * @param {Request_Body} - none
+ * @param {Response} - none
+ * @param {authentication} - Bearer token (JWT)
  * @callback requestCallback
  * @returns {string} - An alert pops us informing that the user has been deleted
  */
@@ -337,12 +460,15 @@ app.delete(
 
 /**
  * Get a list of all users
- * @method GET
- * @param {string} - URL/users
- * @param {atuhentication}
- * @param {requestCallback}
+ * @description - Get a list of all users
+ * @param {URL} - /users
+ * @param {HTTP} - GET
+ * @param {Query_Parameters} - none
+ * @param {Request_Body} - none
+ * @param {Response} - JSON object
+ * @param {authentication} - Bearer token (JWT)
  * @callback requestCallback
- * @returns {array} - A list with all registered users
+ * @returns {object} - A list with all registered users
  */
 
 app.get(
@@ -361,10 +487,23 @@ app.get(
 
 /**
  * Get a specific user by Username
- * @method GET
- * @param {string} - URL/users/:Username
- * @param {authentication}
- * @param {requestCallback}
+ * @description - Get a specific user by Username
+ * @param {URL} - /users/:Username
+ * @param {HTTP} - GET
+ * @param {Query_Parameters} - :Username
+ * @param {Request_Body} - none
+ * @param {response} - JSON object
+ * @example
+ * // Response data format
+ * {
+ *  "_id": "asdasd123123123asd",
+ *  "Username": "User1",
+ *  "Password": "Password1",
+ *  "Email": "user1@email.com",
+ *  "Birthdate": "1990-01-01",
+ *  "FavoriteMovies": []
+ * }
+ * @param {authentication} - Bearer token {JWT}
  * @callback requestCallback
  * @returns {object} - An object with the user's information
  */
