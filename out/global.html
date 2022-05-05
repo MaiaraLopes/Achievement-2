@@ -106,182 +106,6 @@
     
 
     
-    <h4 class="name" id="requestCallback"><span class="type-signature"></span>requestCallback<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Welcome page
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">URL</td>
-        </tr>
-
-    
-
-        <tr>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line36">line 36</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    - Welcome message
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">string</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-            
-                
-
-    
-
-    
     <h4 class="name" id="requestCallback"><span class="type-signature"></span>requestCallback<span class="signature">()</span><span class="type-signature"> &rarr; {object}</span></h4>
     
 
@@ -290,7 +114,7 @@
 
 
 <div class="description">
-    Get a list of all movies
+    - Get a list of all movies
 </div>
 
 
@@ -328,7 +152,7 @@
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">URL</span>
 
 
             
@@ -338,7 +162,91 @@
 
             
 
-            <td class="description last">URL/movies</td>
+            <td class="description last">/movies</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTTP</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">GET</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Query_Parameters</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">none</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Request_Body</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">none</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Response</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON object</td>
         </tr>
 
     
@@ -359,28 +267,7 @@
 
             
 
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
+            <td class="description last">Bearer token (JWT)</td>
         </tr>
 
     
@@ -421,7 +308,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line50">line 50</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line52">line 52</a>
     </li></ul></dd>
     
 
@@ -487,7 +374,7 @@
 
 
 <div class="description">
-    Get all the information of the specified movie
+    - Get all the information of the specified movie
 </div>
 
 
@@ -525,7 +412,7 @@
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">URL</span>
 
 
             
@@ -535,7 +422,91 @@
 
             
 
-            <td class="description last">URL/movies/:Title</td>
+            <td class="description last">/movies/:Title</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTTP</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">GET</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Query_Parameters</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">:Title</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Request_Body</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">none</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Response</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON object</td>
         </tr>
 
     
@@ -556,28 +527,7 @@
 
             
 
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
+            <td class="description last">Bearer token (JWT)</td>
         </tr>
 
     
@@ -618,7 +568,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line74">line 74</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line79">line 79</a>
     </li></ul></dd>
     
 
@@ -669,6 +619,11 @@
 
 
 
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Response data format{"Genre": {"Name": "Animation","Description": "Is a method in which figures are manipulated to appear as moving images."},"Director": {"Name": "Lee Unkrich","Bio": "Is and American director, film editor, screenwriter, and animator.","Birth": "1967-01-01"},"_id": "61e5bc970069cf02d60eac92","Title": "Coco","Description": "The story follows Miguel who is accidentally transported to the Land of the Dead, [...]","ImagePath": "https://upload.wikimedia.org/wikipedia/en/9/98/Coco_%282017_film%29_poster.jpg",}</code></pre>
+
+
 
             
                 
@@ -684,7 +639,7 @@
 
 
 <div class="description">
-    Get the information about a specific genre
+    - Get the information about a specific genre
 </div>
 
 
@@ -722,7 +677,7 @@
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">URL</span>
 
 
             
@@ -732,7 +687,91 @@
 
             
 
-            <td class="description last">URL/movies/Genre/:Name</td>
+            <td class="description last">/movies/Genre/:Name</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTTP</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">GET</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Query_Parameters</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">:Name</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Request_Body</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">none</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Response</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON object</td>
         </tr>
 
     
@@ -753,225 +792,7 @@
 
             
 
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line98">line 98</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    - An object with the information about the specified genre
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">object</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-            
-                
-
-    
-
-    
-    <h4 class="name" id="requestCallback"><span class="type-signature"></span>requestCallback<span class="signature">()</span><span class="type-signature"> &rarr; {object}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Get the information about a specific director
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">URL/movies/Director/:Name</td>
-        </tr>
-
-    
-
-        <tr>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">authentication</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
+            <td class="description last">Bearer token (JWT)</td>
         </tr>
 
     
@@ -1041,7 +862,7 @@
 
         
 <div class="param-desc">
-    - An object with the information about the specified director
+    - An object with the information about the specified genre
 </div>
 
 
@@ -1063,6 +884,11 @@
 
 
 
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Response data format{Name: "Animation","Description": "Is a method in which figures are manipulated to appear as moving images."}</code></pre>
+
+
 
             
                 
@@ -1078,7 +904,7 @@
 
 
 <div class="description">
-    Add a new user
+    - Get the information about a specific director
 </div>
 
 
@@ -1116,7 +942,7 @@
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">URL</span>
 
 
             
@@ -1126,7 +952,7 @@
 
             
 
-            <td class="description last">URL/users</td>
+            <td class="description last">/movies/Director/:Name</td>
         </tr>
 
     
@@ -1137,7 +963,7 @@
             <td class="type">
             
                 
-<span class="param-type">array</span>
+<span class="param-type">HTTP</span>
 
 
             
@@ -1147,7 +973,7 @@
 
             
 
-            <td class="description last">Checks requirements to register a user</td>
+            <td class="description last">GET</td>
         </tr>
 
     
@@ -1158,7 +984,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
+<span class="param-type">Query_Parameters</span>
 
 
             
@@ -1168,7 +994,70 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">:Name</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Request_Body</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">none</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Response</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">authentication</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Bearer token (JWT)</td>
         </tr>
 
     
@@ -1209,7 +1098,272 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line148">line 148</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line157">line 157</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    - An object with the information about the specified director
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Response data format{"Name": "Lee Unkrich","Bio": "Is and American director, film editor, screenwriter, and animator.","Birth": "1967-01-01"}</code></pre>
+
+
+
+            
+                
+
+    
+
+    
+    <h4 class="name" id="requestCallback"><span class="type-signature"></span>requestCallback<span class="signature">()</span><span class="type-signature"> &rarr; {object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    - Add a new user
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">URL</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">/users</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTTP</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">POST</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Query_Parameters</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">none</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Request_Body</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">response</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">authentication</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Bearer token (JWT)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line192">line 192</a>
     </li></ul></dd>
     
 
@@ -1260,6 +1414,13 @@
 
 
 
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>// Request data format{ "Username": "User1", "Password": "Password1", "Email": "user1@email.com", "Birthdate": "1990-01-01"}</code></pre>
+
+    <pre class="prettyprint"><code>// Response data format{ user: {   "_id": "asdasd123123123asd",   "Username": "User1",   "Password": "Password1", 	"Email": "user1@email.com",   "Birthdate": "1990-01-01" ,   "FavoriteMovies": [] }, token: "zxcvbnmmnbvcxz1029384756zxcvbnm"}</code></pre>
+
+
 
             
                 
@@ -1275,7 +1436,7 @@
 
 
 <div class="description">
-    Update the logged in user's information
+    - Update the logged in user's information
 </div>
 
 
@@ -1313,7 +1474,7 @@
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">URL</span>
 
 
             
@@ -1323,7 +1484,91 @@
 
             
 
-            <td class="description last">URL/users/:Username</td>
+            <td class="description last">/users/:Username</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTTP</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">PUT</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Query_Parameters</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">:Username</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Request_Body</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Response</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON object</td>
         </tr>
 
     
@@ -1344,28 +1589,7 @@
 
             
 
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
+            <td class="description last">Bearen token (JWT)</td>
         </tr>
 
     
@@ -1406,7 +1630,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line203">line 203</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line271">line 271</a>
     </li></ul></dd>
     
 
@@ -1457,6 +1681,13 @@
 
 
 
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>// Request data format{ "Username": "User1", "Password": "Password1", "Email": "user1@email.com", "Birthdate:" "1990-01-01"}</code></pre>
+
+    <pre class="prettyprint"><code>// Response data format{ "_id": "asdasd123123123asd", "Username": "User1", "Password": "Password1", "Email": "user1@email.com", "Birthdate": "1990-01-01", "FavoriteMovies": [   "qweqwe456456qwe",   "zxczxc789789zxc, ]}</code></pre>
+
+
 
             
                 
@@ -1472,7 +1703,7 @@
 
 
 <div class="description">
-    Add a movie to the favorites list
+    - Add a movie to the favorites list
 </div>
 
 
@@ -1510,7 +1741,7 @@
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">URL</span>
 
 
             
@@ -1520,7 +1751,91 @@
 
             
 
-            <td class="description last">ULR/users/:Username/movies/:MovieID</td>
+            <td class="description last">/users/:Username/movies/:MovieID</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTTP</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">POST</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Query_Parameters</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">:Username/movies/:MovieID</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Request_Body</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">none</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Response</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON object</td>
         </tr>
 
     
@@ -1541,28 +1856,7 @@
 
             
 
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
+            <td class="description last">Bearer token (JWT)</td>
         </tr>
 
     
@@ -1603,7 +1897,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line241">line 241</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line333">line 333</a>
     </li></ul></dd>
     
 
@@ -1654,6 +1948,11 @@
 
 
 
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Response data format{ "_id": "asdasd123123123asd", "Username": "User1", "Password": "Password1", "Email": "user1@email.com", "Birthdate": "1990-01-01", "FavoriteMovies": [   "qweqwe456456qwe",  ]}</code></pre>
+
+
 
             
                 
@@ -1669,7 +1968,7 @@
 
 
 <div class="description">
-    Delete a movie from the favorites list
+    - Delete a movie from the favorites list
 </div>
 
 
@@ -1707,7 +2006,7 @@
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">URL</span>
 
 
             
@@ -1717,7 +2016,91 @@
 
             
 
-            <td class="description last">URL/users/:Username/movies/:MovieID</td>
+            <td class="description last">users/:Username/movies/:MovieID</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTTP</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">DELETE</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Query_Parameters</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">:Username/movies/:MovieID</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Request_Body</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">none</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Response</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON object</td>
         </tr>
 
     
@@ -1738,28 +2121,7 @@
 
             
 
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
+            <td class="description last">Bearer token (JWT)</td>
         </tr>
 
     
@@ -1800,7 +2162,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line273">line 273</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line380">line 380</a>
     </li></ul></dd>
     
 
@@ -1851,6 +2213,11 @@
 
 
 
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Response data format{ "_id": "asdasd123123123asd", "Username": "User1", "Password": "Password1", "Email": "user1@email.com", "Birthdate": "1990-01-01", "FavoriteMovies": []}</code></pre>
+
+
 
             
                 
@@ -1866,7 +2233,7 @@
 
 
 <div class="description">
-    Delete a user
+    - Delete a user
 </div>
 
 
@@ -1904,7 +2271,7 @@
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">URL</span>
 
 
             
@@ -1914,7 +2281,91 @@
 
             
 
-            <td class="description last">URL/users/:Username</td>
+            <td class="description last">/users/:Username</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTTP</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">DELETE</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Query_Parameters</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">:Username</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Request_Body</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">none</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Response</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">none</td>
         </tr>
 
     
@@ -1935,28 +2386,7 @@
 
             
 
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
+            <td class="description last">Bearer token (JWT)</td>
         </tr>
 
     
@@ -1997,7 +2427,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line305">line 305</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line425">line 425</a>
     </li></ul></dd>
     
 
@@ -2055,7 +2485,7 @@
     
 
     
-    <h4 class="name" id="requestCallback"><span class="type-signature"></span>requestCallback<span class="signature">()</span><span class="type-signature"> &rarr; {array}</span></h4>
+    <h4 class="name" id="requestCallback"><span class="type-signature"></span>requestCallback<span class="signature">()</span><span class="type-signature"> &rarr; {object}</span></h4>
     
 
     
@@ -2063,7 +2493,7 @@
 
 
 <div class="description">
-    Get a list of all users
+    - Get a list of all users
 </div>
 
 
@@ -2101,7 +2531,7 @@
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">URL</span>
 
 
             
@@ -2111,7 +2541,7 @@
 
             
 
-            <td class="description last">URL/users</td>
+            <td class="description last">/users</td>
         </tr>
 
     
@@ -2122,7 +2552,7 @@
             <td class="type">
             
                 
-<span class="param-type">atuhentication</span>
+<span class="param-type">HTTP</span>
 
 
             
@@ -2132,7 +2562,7 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">GET</td>
         </tr>
 
     
@@ -2143,7 +2573,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
+<span class="param-type">Query_Parameters</span>
 
 
             
@@ -2153,7 +2583,70 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">none</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Request_Body</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">none</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Response</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">authentication</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Bearer token (JWT)</td>
         </tr>
 
     
@@ -2194,7 +2687,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line338">line 338</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line461">line 461</a>
     </li></ul></dd>
     
 
@@ -2234,7 +2727,7 @@
     </dt>
     <dd>
         
-<span class="param-type">array</span>
+<span class="param-type">object</span>
 
 
     </dd>
@@ -2260,7 +2753,7 @@
 
 
 <div class="description">
-    Get a specific user by Username
+    - Get a specific user by Username
 </div>
 
 
@@ -2298,7 +2791,7 @@
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">URL</span>
 
 
             
@@ -2308,7 +2801,91 @@
 
             
 
-            <td class="description last">URL/users/:Username</td>
+            <td class="description last">/users/:Username</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTTP</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">GET</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Query_Parameters</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">:Username</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Request_Body</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">none</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">response</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON object</td>
         </tr>
 
     
@@ -2329,28 +2906,7 @@
 
             
 
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#requestCallback">requestCallback</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
+            <td class="description last">Bearer token {JWT}</td>
         </tr>
 
     
@@ -2391,7 +2947,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line362">line 362</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line488">line 488</a>
     </li></ul></dd>
     
 
@@ -2442,6 +2998,278 @@
 
 
 
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Response data format{ "_id": "asdasd123123123asd", "Username": "User1", "Password": "Password1", "Email": "user1@email.com", "Birthdate": "1990-01-01", "FavoriteMovies": []}</code></pre>
+
+
+
+            
+                
+
+    
+
+    
+    <h4 class="name" id="requestCallback"><span class="type-signature"></span>requestCallback<span class="signature">()</span><span class="type-signature"> &rarr; {obejct}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    - Enables user to login to app
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">URL</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">/login</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTTP</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">POST</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Query_Paramenters</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">none</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Request_Body</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Response</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">authentication</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Basic HTTP authentication (Username, Password)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="auth.js.html">auth.js</a>, <a href="auth.js.html#line16">line 16</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    - An object containing a JWT token and the logged in user object
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">obejct</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>// Request data format{ "Username": "User1", "Password": "Password1"}</code></pre>
+
+    <pre class="prettyprint"><code>// Response data format{ user: {   "_id": "asdasd123123123asd",   "Username": "User1",   "Password": "Password1", 	"Email": "user1@email.com",   "Birthdate": "1990-01-01" ,   "FavoriteMovies": [] }, token: "zxcvbnmmnbvcxz1029384756zxcvbnm"}</code></pre>
+
+
 
             
     
@@ -2463,7 +3291,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Tue May 03 2022 18:29:06 GMT+0100 (British Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Thu May 05 2022 20:04:20 GMT+0100 (British Summer Time)
 </footer>
 
 <script> prettyPrint(); </script>
