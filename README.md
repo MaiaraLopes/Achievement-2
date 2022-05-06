@@ -2,7 +2,8 @@
 # myFlix
 
 This is the back-end (server side) part of the myFlix app.
-You can see the documentation [here][(https://myflix-ml.herokuapp.com/documentation.html).
+
+You can see the documentation [here](https://myflix-ml.herokuapp.com/documentation.html).
 
 This is a REST API that interacts with a non-relational database that contains
 a list of movies, the movies' genres, directors and description, and the users
