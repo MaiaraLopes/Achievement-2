@@ -56,10 +56,10 @@ app.use(express.static("public"));
  * @param {HTTP} - GET
  * @param {Query_Parameters} - none
  * @param {Request_Body} - none
- * @param {Response} - JSON object
+ * @param {Response} - array(JSON)
  * @param {authentication} - Bearer token (JWT)
  * @callback requestCallback
- * @returns {object} - An array with a list with all the movies in the database
+ * @returns {array(JSON)} - An array with a list with all the movies in the database
  */
 
 app.get(
@@ -131,7 +131,7 @@ app.get(
  * @example
  * // Response data format
  * {
- * Name: "Animation",
+ * "Name": "Animation",
  * "Description": "Is a method in which figures are manipulated to appear as moving images."
  * }
  * @param {authentication} - Bearer token (JWT)
@@ -208,7 +208,7 @@ app.get(
  * @example
  * // Response data format
  * {
- *  user: {
+ *  "user": {
  *    "_id": "asdasd123123123asd",
  *    "Username": "User1",
  *    "Password": "Password1",
@@ -216,7 +216,7 @@ app.get(
  *    "Birthdate": "1990-01-01" ,
  *    "FavoriteMovies": []
  *  },
- *  token: "zxcvbnmmnbvcxz1029384756zxcvbnm"
+ *  "token": "zxcvbnmmnbvcxz1029384756zxcvbnm"
  * }
  * @param {authentication} - Bearer token (JWT)
  * @callback requestCallback
@@ -333,7 +333,7 @@ app.put(
 /**
  * Add a movie to the favorites list
  * @description - Add a movie to the favorites list
- * @param {URL} - /users/:Username/movies/:MovieID
+ * @param {URL} - :Username, :MovieID
  * @param {HTTP} - POST
  * @param {Query_Parameters} - :Username/movies/:MovieID
  * @param {Request_Body} - none
@@ -380,7 +380,7 @@ app.post(
 /**
  * Delete a movie from the favorites list
  * @description - Delete a movie from the favorites list
- * @param {URL} - users/:Username/movies/:MovieID
+ * @param {URL} - :Username, :MovieID
  * @param {HTTP} - DELETE
  * @param {Query_Parameters} - :Username/movies/:MovieID
  * @param {Request_Body} - none
@@ -465,10 +465,10 @@ app.delete(
  * @param {HTTP} - GET
  * @param {Query_Parameters} - none
  * @param {Request_Body} - none
- * @param {Response} - JSON object
+ * @param {Response} - array(JSON)
  * @param {authentication} - Bearer token (JWT)
  * @callback requestCallback
- * @returns {object} - A list with all registered users
+ * @returns {array(JSON)} - A list with all registered users
  */
 
 app.get(
